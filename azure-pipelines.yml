@@ -24,4 +24,4 @@ steps:
     templateLocation: 'URL of the file'
     csmFileLink: 'https://github.com/salmanalibanani/AzureIntegrationDemo/blob/main/Templates/ResourceGroup/template.json'
     csmParametersFileLink: 'https://github.com/salmanalibanani/AzureIntegrationDemo/blob/main/Templates/ResourceGroup/template.parameters.json'
-    deploymentMode: 'Complete'
+    deploymentMode: 'Incremental'
