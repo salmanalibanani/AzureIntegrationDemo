@@ -15,12 +15,6 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: 'Templates'
-    Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)\Templates'
-    OverWrite: true
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Subscription'
