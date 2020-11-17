@@ -21,4 +21,3 @@ steps:
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)\Templates'
     OverWrite: true
-- 
