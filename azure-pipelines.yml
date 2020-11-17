@@ -15,3 +15,13 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Subscription'
+    azureResourceManagerConnection: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
+    subscriptionId: '47df455b-f3c1-4e50-a88d-ff6a59939ec0'
+    location: 'Australia East'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://github.com/salmanalibanani/AzureIntegrationDemo/blob/main/Templates/ResourceGroup/template.json'
+    csmParametersFileLink: 'https://github.com/salmanalibanani/AzureIntegrationDemo/blob/main/Templates/ResourceGroup/template.parameters.json'
+    deploymentMode: 'Complete'
