@@ -27,6 +27,6 @@ steps:
     azureResourceManagerConnection: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
     subscriptionId: '47df455b-f3c1-4e50-a88d-ff6a59939ec0'
     templateLocation: 'Linked artifact'
-    csmFile: 'Templates\ResourceGroup\template.json'
-    csmParametersFile: 'Templates\ResourceGroup\template.parameters.json'
+    csmFile: '/home/vsts/work/1/s/Templates/ResourceGroup/template.json'
+    csmParametersFile: '/home/vsts/work/1/s/Templates/ResourceGroup/template.parameters.json'
     deploymentMode: 'Incremental'
