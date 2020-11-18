@@ -22,8 +22,8 @@ steps:
     subscriptionId: '47df455b-f3c1-4e50-a88d-ff6a59939ec0'
     location: 'Australia East'
     templateLocation: 'Linked artifact'
-    csmFile: '/home/vsts/work/1/s/Templates/ResourceGroup/template.json'
-    csmParametersFile: '/home/vsts/work/1/s/Templates/ResourceGroup/template.parameters.json'
+    csmFile: '$(System.DefaultWorkingDirectory)/Templates/ResourceGroup/template.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/ResourceGroup/template.parameters.json'
     deploymentMode: 'Incremental'
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
@@ -34,7 +34,7 @@ steps:
     resourceGroupName: 'AzureIntegrationDemoRG'
     location: 'Australia East'
     templateLocation: 'Linked artifact'
-    csmFile: '/home/vsts/work/1/s/Templates/ServiceBus/template.json'
-    csmParametersFile: '/home/vsts/work/1/s/Templates/ServiceBus/template.parameters.json'
+    csmFile: '$(System.DefaultWorkingDirectory)/Templates/ServiceBus/template.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/ServiceBus/template.parameters.json'
     deploymentMode: 'Incremental'
 
