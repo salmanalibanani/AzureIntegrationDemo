@@ -27,11 +27,14 @@ steps:
     deploymentMode: 'Incremental'
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
-    deploymentScope: 'Subscription'
+    deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
     subscriptionId: '47df455b-f3c1-4e50-a88d-ff6a59939ec0'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'AzureIntegrationDemoRG'
     location: 'Australia East'
     templateLocation: 'Linked artifact'
     csmFile: '/home/vsts/work/1/s/Templates/ServiceBus/template.json'
     csmParametersFile: '/home/vsts/work/1/s/Templates/ServiceBus/template.parameters.json'
     deploymentMode: 'Incremental'
+
