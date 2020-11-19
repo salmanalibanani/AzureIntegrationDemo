@@ -26,6 +26,7 @@ steps:
     csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/ResourceGroup/template.parameters.json'
     deploymentMode: 'Incremental'
 - task: AzureResourceManagerTemplateDeployment@3
+  name: DeployServiceBus
   inputs:
     deploymentScope: 'Resource Group'
     azureResourceManagerConnection: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
@@ -39,7 +40,7 @@ steps:
     deploymentMode: 'Incremental'
     deploymentOutputs: service_bus_template_output
 - pwsh: |
-    $armOutputObj = $env:service_bus_template_output | convertfrom-json
+    $armOutputObj = $(DeployServiceBus.service_bus_template_output) | convertfrom-json
     $connectionString = $armOutputObj.namespaceConnectionString.value
     Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
 
