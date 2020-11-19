@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "keyVaultName": {
-            "value": "aikv2032"
+            "value": "aikv2033"
         },
         "tenantId": {
             "value": "051137fd-71a2-4ec0-88bc-e7db221e4fa3"
         },
         "objectId": {
-            "value": "b269fab4-c9bd-4198-a735-dee274baca31"
+            "value": "c033d6c7-5630-4b87-b9d2-bc0e9d42be9d"
         }
     }
 }
