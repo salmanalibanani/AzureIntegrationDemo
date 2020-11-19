@@ -121,16 +121,7 @@
                     "bypass": "AzureServices"
                 }
             }
-        },
-        {
-            "type": "Microsoft.KeyVault/vaults/secrets",
-            "apiVersion": "2019-09-01",
-            "name": "[concat(parameters('keyVaultName'), '/', parameters('secretName'))]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
-            ] 
-
         }
+
     ]
 }
