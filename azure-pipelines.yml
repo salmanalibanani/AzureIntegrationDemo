@@ -40,7 +40,7 @@ steps:
     deploymentMode: 'Incremental'
     deploymentOutputs: servicebustemplateoutput
 - pwsh: |
-    $armOutputObj = $(DeployServiceBus.servicebustemplateoutput) | convertfrom-json
+    $armOutputObj = $(servicebustemplateoutput) | convertfrom-json
     $connectionString = $armOutputObj.namespaceConnectionString.value
     Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
 
