@@ -44,6 +44,6 @@ steps:
     $connectionString = $armOutputObj.namespaceConnectionString.value
     Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
     echo 'Salman'
-    echo '$(ServiceBusConnectionString)'
+    echo $(ServiceBusConnectionString)
 
 
