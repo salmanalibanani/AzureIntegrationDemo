@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "keyVaultName": {
-            "value": "AzureIntegrationKV"
+            "value": "aikv2032"
         },
         "tenantId": {
             "value": "051137fd-71a2-4ec0-88bc-e7db221e4fa3"

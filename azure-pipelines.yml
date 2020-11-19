@@ -62,7 +62,7 @@ steps:
   inputs:
     ConnectedServiceName: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
     resourceGroupName: 'AzureIntegrationDemoRG'
-    KeyVaultName: 'AzureIntegrationKV'
+    KeyVaultName: 'aikv2032'
     SecretName: 'ServiceBusConnectionString'
     SecretValue: '$(ServiceBusConnectionString)'
 
