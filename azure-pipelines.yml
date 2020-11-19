@@ -16,6 +16,7 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 - task: AzureResourceManagerTemplateDeployment@3
+  name: DeployResourceGroup
   inputs:
     deploymentScope: 'Subscription'
     azureResourceManagerConnection: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
@@ -24,6 +25,19 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: '$(System.DefaultWorkingDirectory)/Templates/ResourceGroup/template.json'
     csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/ResourceGroup/template.parameters.json'
+    deploymentMode: 'Incremental'
+- task: AzureResourceManagerTemplateDeployment@3
+  name: DeployKeyVault
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
+    subscriptionId: '47df455b-f3c1-4e50-a88d-ff6a59939ec0'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'AzureIntegrationDemoRG'
+    location: 'Australia East'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(System.DefaultWorkingDirectory)/Templates/KeyVault/template.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/KeyVault/template.parameters.json'
     deploymentMode: 'Incremental'
 - task: AzureResourceManagerTemplateDeployment@3
   name: DeployServiceBus
@@ -44,6 +58,7 @@ steps:
     $connectionString = $armOutputObj.namespaceConnectionString.value
     Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
 - task: cboroson-WriteSecrets@1
+  displayName: WriteSecrets
   inputs:
     ConnectedServiceName: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
     resourceGroupName: 'AzureIntegrationDemoRG'
