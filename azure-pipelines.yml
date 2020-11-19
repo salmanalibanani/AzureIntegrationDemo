@@ -49,5 +49,12 @@ steps:
       $connectionString = $armOutputObj.namespaceConnectionString.value
       Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
     azurePowerShellVersion: 'LatestVersion'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $armOutputObj = $(service_bus_template_output) | convertfrom-json
+      $connectionString = $armOutputObj.namespaceConnectionString.value
+      Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
 
 
