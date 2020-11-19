@@ -26,6 +26,18 @@ steps:
     csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/ResourceGroup/template.parameters.json'
     deploymentMode: 'Incremental'
 - task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
+    subscriptionId: '47df455b-f3c1-4e50-a88d-ff6a59939ec0'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'AzureIntegrationDemoRG'
+    location: 'Australia East'
+    templateLocation: 'Linked artifact'
+    csmFile: '$(System.DefaultWorkingDirectory)/Templates/KeyVault/template.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/KeyVault/template.parameters.json'
+    deploymentMode: 'Incremental'
+- task: AzureResourceManagerTemplateDeployment@3
   name: DeployServiceBus
   inputs:
     deploymentScope: 'Resource Group'
