@@ -45,5 +45,12 @@ steps:
     Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
     echo 'Salman'
     echo $ServiceBusConnectionString
+- task: cboroson-WriteSecrets@1
+  inputs:
+    ConnectedServiceName: 'Visual Studio Professional(47df455b-f3c1-4e50-a88d-ff6a59939ec0)'
+    resourceGroupName: 'AzureKeyVaultTaskDemoRG'
+    KeyVaultName: 'SalFromTemplateVault'
+    SecretName: 'ServiceBusConnectionString'
+    SecretValue: '$(ServiceBusConnectionString)'
 
 
