@@ -37,4 +37,5 @@ steps:
     csmFile: '$(System.DefaultWorkingDirectory)/Templates/ServiceBus/template.json'
     csmParametersFile: '$(System.DefaultWorkingDirectory)/Templates/ServiceBus/template.parameters.json'
     deploymentMode: 'Incremental'
+    deploymentOutputs: service_bus_template_output
 
