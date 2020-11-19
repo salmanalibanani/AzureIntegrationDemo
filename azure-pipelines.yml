@@ -46,5 +46,6 @@ steps:
       # You can write your azure powershell scripts inline here. 
       # You can also pass predefined and custom variables to this script using arguments
       Write-Output service_bus_template_output
+    azurePowerShellVersion: 'LatestVersion'
 
 
