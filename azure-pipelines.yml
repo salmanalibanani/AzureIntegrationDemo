@@ -43,6 +43,7 @@ steps:
     $armOutputObj = '$(servicebustemplateoutput)' | convertfrom-json
     $connectionString = $armOutputObj.namespaceConnectionString.value
     Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
-    Write-Host $ServiceBusConnectionString
+    echo 'Salman'
+    echo '$(ServiceBusConnectionString)'
 
 
