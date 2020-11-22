@@ -56,7 +56,7 @@ steps:
 - pwsh: |
     $armOutputObj = '$(servicebustemplateoutput)' | convertfrom-json
     $connectionString = $armOutputObj.namespaceConnectionString.value
-    Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;]$connectionString"
+    Write-Output "##vso[task.setvariable variable=ServiceBusConnectionString;issecret=true]$connectionString"
 - task: cboroson-WriteSecrets@1
   displayName: WriteSecrets
   inputs:
